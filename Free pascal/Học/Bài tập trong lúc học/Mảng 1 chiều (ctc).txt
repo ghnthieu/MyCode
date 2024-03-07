@@ -1,0 +1,40 @@
+Program mang_1_chieu;
+uses crt;
+type mang=array[1..100] of integer;
+     sn=integer;
+var n,m:sn;
+    a,b:mang;
+procedure nhap(var a:mang; var n:sn);
+var i:integer;
+begin
+  write('nhap so phan tu: ');readln(n);
+  for i:=1 to n do
+    begin
+      write('so thu ',i,': ');readln(a[i]);
+    end;
+end;
+procedure in_ra(a:mang;n:sn);
+var i:sn;
+begin
+  writeln('day so da nhap la: ');
+  for i:=1 to n do
+    write(a[i],' ');
+  writeln;
+  writeln('-------------------');
+end;
+procedure tong_mang;
+var tong,i:integer;
+begin
+  tong:=0;
+  for i:=1 to n do
+    tong:=tong+a[i];
+  writeln('tong gia tri mang la: ',tong);
+end;
+
+BEGIN
+clrscr;
+  nhap(a,n);
+  in_ra(a,n);
+  tong_mang;
+readln
+END.

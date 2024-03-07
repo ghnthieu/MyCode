@@ -1,0 +1,32 @@
+program tam_giac;
+uses crt;
+var a,b,c:integer;
+procedure nhap(var a,b,c:integer);
+begin
+  write('nhap a: ');readln(a);
+  write('nhap b: ');readln(b);
+  write('nhap c: ');readln(c);
+end;
+procedure xuat_truong_hop;
+begin
+  if (a+b<c) or (b+c<a) or (c+a<b) then
+    writeln('day khong phai la tam giac')
+  else
+    if (a=b) and (b=c) then
+      writeln('day la tam giac deu')
+    else
+      if (a=b) or (b=c) or (c=a) then
+        writeln('day la tam giac can')
+      else
+        if (a*a=b*b+c*c) or (b*b=a*a+c*c) or (c*c=a*a+b*b) then
+          writeln('day la tam giac vuong')
+        else
+          writeln('day la tam giac thuong');
+end;
+
+BEGIN
+  clrscr;
+  nhap(a,b,c);
+  xuat_truong_hop;
+readln
+END.

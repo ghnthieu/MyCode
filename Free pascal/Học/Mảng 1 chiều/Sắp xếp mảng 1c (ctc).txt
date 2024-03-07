@@ -1,0 +1,58 @@
+Program mang_1c;
+uses crt;
+type mang=array[1..100] of longint;
+     sn=longint;
+var a:mang;
+    n:sn;
+
+procedure nhap(var a:mang; var n:sn);
+var i:sn;
+begin
+  write('Nhap so luong phan tu: ');readln(n);
+  for i:=1 to n do
+    begin
+      write('a[',i,']=');readln(a[i]);
+    end;
+  writeln('------------------------------');
+end;
+
+procedure doi_cho(var a,b:sn);
+var m:sn;
+begin
+  m:=a;
+  a:=b;
+  b:=m;
+end;
+
+procedure sx_nl(a:mang; n:sn);
+var i,j:sn;
+begin
+  writeln('Cac phan tu trong mang A theo thu tu tang dan la: ');
+  for i:=1 to n-1 do
+    for j:=i+1 to n do
+      if a[i]>a[j] then
+        doi_cho(a[i],a[j]);
+  for i:=1 to n do
+    write(a[i],' ');
+  writeln;
+end;
+
+procedure sx_ln(a:mang; n:sn);
+var i,j:sn;
+begin
+  writeln('Cac phan tu trong mang A theo thu tu giam dan la: ');
+  for i:=1 to n-1 do
+    for j:=i+1 to n do
+      if a[i]<a[j] then
+        doi_cho(a[i],a[j]);
+  for i:=1 to n do
+    write(a[i],' ');
+end;
+
+Begin
+  clrscr;
+  nhap(a,n);
+  sx_nl(a,n);
+  sx_ln(a,n);
+  readln
+End.

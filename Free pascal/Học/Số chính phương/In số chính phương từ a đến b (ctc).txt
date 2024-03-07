@@ -1,0 +1,42 @@
+Program so_cq;
+uses crt;
+var a,b:integer;
+procedure nhap(var a,b:integer);
+begin
+  repeat
+    write('Nhap so a: ');readln(a);
+  until a>=1;
+  repeat
+    write('Nhap so b: ');readln(b);
+  until b>a;
+end;
+function kt(n:integer):boolean;
+var can:integer;
+    ok:boolean;
+begin
+  can:=round(sqrt(n));
+  if sqr(can)=n then
+    ok:=true
+  else
+    ok:=false;
+  kt:=ok;
+end;
+procedure in_ra(a,b:integer);
+var i:integer;
+begin
+  for i:=a to b do
+    if kt(i) then
+      write(i,' ');
+end;
+
+Begin
+clrscr;
+  nhap(a,b);
+  in_ra(a,b);
+readln
+End.
+
+
+
+
+

@@ -1,0 +1,32 @@
+Program so_chinh_phuong;
+uses crt;
+var n:integer;
+procedure nhap(var n:integer);
+begin
+  write('nhap so N: ');readln(n);
+end;
+function kt(n:integer):boolean;
+var can:integer;
+    ok:boolean;
+begin
+  can:=round(sqrt(n));
+  if sqr(can)=n then
+    ok:=true
+  else
+    ok:=false;
+  kt:=ok;
+end;
+procedure in_ra(n:integer);
+begin
+  if kt(n) then
+    writeln('Dung')
+  else
+    writeln('Khong');
+end;
+
+Begin
+clrscr;
+  nhap(n);
+  in_ra(n);
+readln
+End.

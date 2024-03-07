@@ -1,0 +1,27 @@
+Program tich_n;
+uses crt;
+var n:integer;
+procedure nhap(var n:integer);
+begin
+  write('nhap n: ');readln(n);
+end;
+procedure xuat_tich(n:integer);
+var tich:qword;
+    i:integer;
+begin
+  i:=1;
+  tich:=1;
+  while i<=n do
+    begin
+      tich:=tich*i;
+      inc(i);
+    end;
+  writeln('tich tu 1 den ',n,' bang: ',tich);
+end;
+
+BEGIN
+ clrscr;
+ nhap(n);
+ xuat_tich(n);
+ readln
+END.

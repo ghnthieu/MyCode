@@ -1,0 +1,51 @@
+Program bt;
+uses crt;
+var a,b:integer;
+procedure nhap(var a,b:integer);
+begin
+  write('a= ');readln(a);
+  repeat
+    write('b= ');readln(b);
+  until b<>0;
+end;
+function ucln(a,b:integer):integer;
+var sodu:integer;
+begin
+  sodu:=a mod b;
+  while sodu<>0 do
+    begin
+      a:=b;
+      b:=sodu;
+      sodu:=a mod b;
+    end;
+  ucln:=b;
+end;
+procedure kiemtra(a,b:integer);
+var kq:integer;
+begin
+  if a mod b=0 then
+    begin
+      kq:=a div b;
+      write('kq: ',kq);
+    end
+  else
+    if ucln(a,b)<>1 then
+      write('kq: ',a,'/',b,' = ',a div ucln(a,b),'/',b div ucln(a,b));
+  if ucln(a,b)=1 then
+    write('kq: phan so toi gian');
+end;
+
+Begin
+clrscr;
+  nhap(a,b);
+  kiemtra(a,b);
+readln
+End.
+
+
+
+
+
+
+
+

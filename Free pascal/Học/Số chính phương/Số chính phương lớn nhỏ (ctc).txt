@@ -1,0 +1,40 @@
+Program so_cq;
+uses crt;
+var n:integer;
+procedure nhap(var n:integer);
+begin
+  write('Nhap gia tri n: ');readln(n);
+end;
+function kt(n:integer):boolean;
+var can:integer;
+    ok:boolean;
+begin
+  can:=round(sqrt(n));
+  if sqr(can)=n then
+    ok:=true
+  else
+    ok:=false;
+  kt:=ok;
+end;
+procedure scp_ln(n:integer);
+begin
+  repeat
+    dec(n);
+  until kt(n);
+  writeln('So chinh phuong lon nhat nho hon n la: ',n);
+end;
+procedure scp_nn(n:integer);
+begin
+  repeat
+    inc(n);
+  until kt(n);
+  writeln('So chinh phuong nho nhat lon hon n la: ',n);
+end;
+
+Begin
+clrscr;
+  nhap(n);
+  scp_ln(n);
+  scp_nn(n);
+readln
+End.

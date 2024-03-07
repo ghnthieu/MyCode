@@ -1,0 +1,37 @@
+Program so_nt;
+uses crt;
+var n:integer;
+procedure nhap(var n:integer);
+begin
+  write('nhap so nguyen n: ');readln(n);
+end;
+function kt(n:integer):boolean;
+var i:integer;
+    ok:boolean;
+begin
+  ok:=true;
+  if n<2 then
+    ok:=false
+  else
+    for i:=2 to trunc(sqrt(n)) do
+      if n mod i=0 then
+        begin
+          ok:=false;
+          break;
+        end;
+  kt:=ok;
+end;
+procedure stn(n:integer);
+begin
+  if kt(n) then
+    writeln(n,' La so nguyen to')
+  else
+    writeln(n,' Khong phai la so nguyen to');
+end;
+Begin
+clrscr;
+  nhap(n);
+  stn(n);
+readln
+End.
+

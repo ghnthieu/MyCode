@@ -1,0 +1,33 @@
+Program ucll_bcnn_so;
+uses crt;
+var a,b:integer;
+procedure nhap(var a,b:integer);
+begin
+  write('nhap so nguyen a: ');readln(a);
+  write('nhap so nguyen b: ');readln(b);
+end;
+function ucln_so(a,b:integer):integer;
+var sodu:integer;
+begin
+  sodu:=a mod b;
+  while sodu<>0 do
+    begin
+      a:=b;
+      b:=sodu;
+      sodu:=a mod b;
+    end;
+  ucln_so:=b;
+  writeln('uoc chung lon nhat cua a va b la: ',ucln_so);
+end;
+procedure bcnn_so(a,b:integer);
+var bcnn:integer;
+begin
+  bcnn:=a*b div (ucln_so(a,b));
+  writeln('boi chung nho nhat cua a va b la: ',bcnn);
+end;
+Begin
+clrscr;
+  nhap(a,b);
+  bcnn_so(a,b);
+readln
+End.

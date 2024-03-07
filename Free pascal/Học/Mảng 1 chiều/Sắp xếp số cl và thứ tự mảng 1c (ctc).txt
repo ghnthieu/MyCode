@@ -1,0 +1,73 @@
+Program mang_1c;
+uses crt;
+type mang=array[1..100] of longint;
+     sn=longint;
+var a:mang;
+    n:sn;
+
+procedure nhap(var a:mang; var n:sn);
+var i:sn;
+begin
+  write('nhap so luong phan tu: ');readln(n);
+  for i:=1 to n do
+    begin
+      write('a[',i,']=');readln(a[i]);
+    end;
+  writeln('----------------------------');
+end;
+
+procedure doi_cho(var a,b:sn);
+var tam:sn;
+begin
+  tam:=a;
+  a:=b;
+  b:=tam;
+end;
+
+procedure sx_lc(a:mang; n:sn);
+var l,r,i,demle,j:sn;
+begin
+  writeln('Day sap xep le tang chan giam la: ');
+  l:=1;
+  r:=n;
+  while l<r do
+    if (a[l] mod 2=0) and (a[r] mod 2<>0) then
+      begin
+        doi_cho(a[l],a[r]);
+        inc(l);
+        dec(r);
+      end
+    else
+      if a[l] mod 2=0 then
+        dec(r)
+      else
+        inc(l);
+  for i:=1 to n do
+    write(a[i],' ');
+  writeln;
+  writeln('Day sap xep le tang, chan giam la: ');
+  demle:=0;
+  i:=1;
+  while a[i] mod 2<>0 do
+    begin
+      inc(demle);
+      inc(i);
+    end;
+  for i:=1 to demle-1 do
+    for j:=i+1 to demle do
+      if a[i]>a[j] then
+        doi_cho(a[i],a[j]);
+  for i:=demle+1 to n-1 do
+    for j:=i+1 to n do
+      if a[i]<a[j] then
+        doi_cho(a[i],a[j]);
+  for i:=1 to n do
+    write(a[i],' ');
+end;
+
+Begin
+  clrscr;
+  nhap(a,n);
+  sx_lc(a,n);
+  readln
+End.

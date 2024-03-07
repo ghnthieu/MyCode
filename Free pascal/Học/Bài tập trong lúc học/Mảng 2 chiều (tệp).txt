@@ -1,0 +1,23 @@
+Program m2c;
+uses crt;
+var i,j,m,n:integer;
+    a:array[1..100,1..100] of integer;
+    fi,fo:text;
+begin
+  assign(fi,'matran.inp');reset(fi);
+  read(fi,n,m);
+  assign(fo,'matran.out');rewrite(fo);
+  for i:=1 to n do
+    for j:=1 to m do
+      begin
+        read(fi,a[i,j]);
+      end;
+  for i:=1 to n do
+    begin
+      for j:=1 to m do
+        write(fo,a[i,j],' ');
+        writeln(fo);
+    end;
+  close(fi);
+  close(fo);
+end.

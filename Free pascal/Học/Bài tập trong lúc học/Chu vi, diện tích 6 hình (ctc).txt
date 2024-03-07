@@ -1,0 +1,144 @@
+Program cv_dt;
+uses crt;
+var n:integer;
+    mk:string;
+procedure nhap_mk(var mk:string);
+begin
+  repeat
+    writeln('nhap "tinhhinh" de tiep tuc');
+    write('nhap mk: ');readln(mk);
+  until mk='tinhhinh';
+end;
+procedure chon_hinh(var n:integer);
+begin
+  writeln('nhap 1 de tinh hinh vuong');
+  writeln('nhap 2 de tinh hinh chu nhat');
+  writeln('nhap 3 de tinh hinh tam giac');
+  writeln('nhap 4 de tinh hinh binh hanh');
+  writeln('nhap 5 de tinh hinh tron');
+  writeln('nhap 6 de tinh hinh thang');
+  writeln('------------------------------');
+  write('nhap hinh: ');readln(n);
+end;
+procedure tinh_cv_dt;
+var a,b,c,d,x:real;
+const pi=3.14;
+begin
+  case n of
+    1: begin
+         write('nhap canh 1: ');readln(a);
+         write('nhap canh 2: ');readln(b);
+         if (a<b) or (a>b) then
+           writeln('day la hinh chu nhat, ban nen chon so 2')
+         else
+           begin
+             writeln('day la hinh vuong');
+             writeln('chu vi hinh vuong la: ',(a*4):0:1);
+             writeln('dien tich hinh vuong la: ',(a*a):0:1);
+           end;
+       end;
+    2: begin
+         write('nhap chieu dai: ');readln(a);
+         write('nhap chieu rong: ');readln(b);
+         if a=b then
+           writeln('day la hinh vuong, ban nen chon so 1')
+         else
+           begin
+             writeln('day la hinh chu nhat');
+             writeln('chu vi hinh chu nhat la: ',((a+b)*2):0:1);
+             writeln('dien tich hinh chu nhat bang: ',(a*b):0:1);
+           end;
+       end;
+    3: begin
+         write('nhap canh 1: ');readln(a);
+         write('nhap canh 2: ');readln(b);
+         write('nhap canh 3: ');readln(c);
+         if (a+b<c) or (a+c<b) or (c+b<a) then
+           writeln('day khong phai la hinh tam giac')
+         else
+           if (a=b) and (b=c) then
+             begin
+               writeln('day la tam giac deu');
+               writeln('chu vi hinh tam giac la: ',(a+b+c):0:1);
+               x:=(a+b+c)/2;
+               d:=sqrt(x*(x-a)*(x-b)*(x-c));
+               writeln('dien tich hinh tam giac bang: ',d:0:1);
+             end
+           else
+             if (a=b) or (b=c) or (c=a) then
+               begin
+                 writeln('day la tam giac can');;
+                 writeln('chu vi hinh tam giac la: ',(a+b+c):0:1);
+                 x:=(a+b+c)/2;
+                 d:=sqrt(x*(x-a)*(x-b)*(x-c));
+                 writeln('dien tich hinh tam giac bang: ',d:0:1);
+               end
+             else
+               if (a*a=b*b+c*c) or (b*b=a*a+c*c) or (c*c=a*a+b*b) then
+                 begin
+                   writeln('day la tam giac vuong');
+                   writeln('chu vi hinh tam giac la: ',(a+b+c):0:1);
+                   x:=(a+b+c)/2;
+                   d:=sqrt(x*(x-a)*(x-b)*(x-c));
+                   writeln('dien tich hinh tam giac bang: ',d:0:1);
+                 end
+               else
+                 begin
+                   writeln('day la tam giac thuong');
+                   writeln('chu vi hinh tam giac la: ',(a+b+c):0:1);
+                   x:=(a+b+c)/2;
+                   d:=sqrt(x*(x-a)*(x-b)*(x-c));
+                   writeln('dien tich hinh tam giac bang: ',d:0:1);
+                 end;
+       end;
+    4: begin
+         write('nhap day lon: ');readln(a);
+         write('nhap day be: ');readln(b);
+         write('nhap chieu cao: ');readln(c);
+         if (a<b) or (a>b) then
+           writeln('day la hinh thang, ban nen chon so 6')
+         else
+           begin
+             writeln('day la hinh binh hanh');
+             writeln('chu vi hinh binh hanh la: ',((a+b)*2):0:1);
+             writeln('dien tich hinh binh hanh bang: ',(a*c):0:1);
+           end;
+       end;
+    5: begin
+         write('nhap ban kinh: ');readln(a);
+             writeln('chu vi hinh tron la: ',((a*2)*pi):0:1);
+             writeln('dien tich hinh tron la: ',(a*a*pi):0:1);
+       end;
+    6: begin
+         write('nhap day be: ');readln(a);
+         write('nhap canh ben: ');readln(b);
+         write('nhap day lon: ');readln(c);
+         write('nhap canh ben: ');readln(d);
+         write('nhap chieu cao: ');readln(x);
+         if (a=c) and (b=d) then
+           writeln('day la hinh binh hanh, ban nen chon so 4')
+         else
+           if b=d then
+           begin
+             writeln('day la hinh thang can');
+             writeln('chu vi hinh thang la: ',(a+b+c+d):0:1);
+             writeln('dien tich hinh thang: ',(((a+c)/2)*x):0:1);
+           end
+         else
+           begin
+             writeln('day la hinh thang thuong');
+           writeln('chu vi hinh thang la: ',(a+b+c+d):0:1);
+           writeln('dien tich hinh thang: ',(((a+c)/2)*x):0:1);
+           end;
+       end;
+  end;
+end;
+
+BEGIN
+clrscr;
+  nhap_mk(mk);
+  chon_hinh(n);
+  tinh_cv_dt;
+readln
+END.
+

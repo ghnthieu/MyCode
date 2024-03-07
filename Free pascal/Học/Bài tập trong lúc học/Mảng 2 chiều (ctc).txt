@@ -1,0 +1,35 @@
+Program mang_2_chieu;
+uses crt;
+type mang=array[1..10,1..10] of integer;
+     sn=integer;
+var i,j,m,n:sn;
+    a,b:mang;
+procedure nhap(var a:mang; var n,m:sn);
+begin
+  write('nhap cot: '); readln(n);
+  write('nhap hang: '); readln(m);
+  for i:=1 to n do
+    for j:=1 to m do
+      begin
+        write('A[',i,',',j,']= '); readln(A[i,j]);
+      end;
+end;
+procedure in_ra(a:mang; n,m:sn);
+begin
+  for i:=1 to n do
+   begin
+    for j:=1 to m do
+      write(a[i,j],' ');
+    writeln;
+   end;
+  writeln('---------------');
+end;
+
+BEGIN
+  clrscr;
+  nhap(a,n,m);
+  in_ra(a,n,m);
+  nhap(b,n,m);
+  in_ra(b,n,m);
+  readln
+END.

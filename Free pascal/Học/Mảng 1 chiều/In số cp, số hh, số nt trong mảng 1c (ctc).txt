@@ -1,0 +1,111 @@
+Program mang_1c;
+uses crt;
+type mang=array[1..100] of integer;
+     sn=longint;
+var a:mang;
+    n:sn;
+
+procedure nhap(var a:mang; var n:sn);
+var i:sn;
+begin
+  write('Nhap so phan tu: ');readln(n);
+  for i:=1 to n do
+    begin
+      write('a[',i,']= ');readln(a[i]);
+    end;
+  writeln('------------------------------------');
+end;
+
+function kt_shh(n:sn):boolean;
+var i:sn;
+    stn:sn;
+    ok:boolean;
+begin
+  stn:=0;
+  for i:=1 to n div 2 do
+    if n mod i=0 then
+      stn:=stn+i;
+  if stn=n then
+    ok:=true
+  else
+    ok:=false;
+  kt_shh:=ok;
+end;
+
+function kt_scp(n:integer):boolean;
+var can:integer;
+    ok:boolean;
+begin
+  can:=round(sqrt(n));
+  if sqr(can)=n then
+    ok:=true
+  else
+    ok:=false;
+  kt_scp:=ok;
+end;
+
+function kt_snt(n:integer):boolean;
+var i:integer;
+    ok:boolean;
+begin
+  ok:=true;
+  if n<2 then
+    ok:=false
+  else
+    for i:=2 to trunc(sqrt(n)) do
+      if n mod i=0 then
+        begin
+          ok:=false;
+          break;
+        end;
+  kt_snt:=ok;
+end;
+
+procedure in_shh(a:mang; n:sn);
+var demhh,i:sn;
+begin
+  demhh:=0;
+  for i:=1 to n do
+    if kt_shh(a[i]) then
+      begin
+        write(a[i],' ');
+        inc(demhh);
+      end;
+  writeln('trong mang co ',demhh,' so hoan hao');
+end;
+
+procedure in_scp(a:mang; n:sn);
+var demcp,i:sn;
+begin
+  demcp:=0;
+  for i:=1 to n do
+    if kt_scp(a[i]) then
+      begin
+        write(a[i],' ');
+        inc(demcp);
+      end;
+  writeln('trong mang co ',demcp,' so chinh phuong');
+end;
+
+procedure in_snt(a:mang; n:sn);
+var demnt,i:sn;
+begin
+  demnt:=0;
+  for i:=1 to n do
+    if kt_snt(a[i]) then
+      begin
+        write(a[i],' ');
+        inc(demnt);
+      end;
+  write('trong mang co ',demnt,' so nguyen to');
+end;
+
+
+Begin
+  clrscr;
+  nhap(a,n);
+  in_shh(a,n);
+  in_scp(a,n);
+  in_snt(a,n);
+  readln
+End.

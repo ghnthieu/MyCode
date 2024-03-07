@@ -1,0 +1,40 @@
+Program so_cq;
+uses crt;
+var n:integer;
+procedure nhap(var n:integer);
+begin
+  repeat
+    write('Nhap so nguyen N: ');readln(n);
+  until n>=10;
+end;
+function kt(n:integer):boolean;
+var can:integer;
+    ok:boolean;
+begin
+  can:=round(sqrt(n));
+  if sqr(can)=n then
+    ok:=true
+  else
+    ok:=false;
+  kt:=ok;
+end;
+procedure in_ra(n:integer);
+var i:integer;
+begin
+  for i:=10 to n-1 do
+    if kt(i) then
+      write(i,' ');
+end;
+
+Begin
+clrscr;
+  nhap(n);
+  in_ra(n);
+readln
+End.
+
+
+
+
+
+

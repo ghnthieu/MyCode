@@ -1,0 +1,47 @@
+program max_min;
+uses crt;
+var a,b:integer;
+procedure nhap(var a,b:integer);
+begin
+  write('nhap a: ');readln(a);
+  write('nhap b: ');readln(b);
+end;
+function tong_so(a,b:integer):integer;
+var tong:integer;
+begin
+  tong:=a+b;
+  tong_so:=tong;
+end;
+function hieu_so(a,b:integer):integer;
+var hieu:integer;
+begin
+  hieu:=a-b;
+  hieu_so:=hieu;
+end;
+function tich_so(a,b:integer):integer;
+var tich:integer;
+begin
+  tich:=a*b;
+  tich_so:=tich;
+end;
+function thuong_so(a,b:integer):real;
+var thuong:real;
+begin
+  thuong:=a/b;
+  thuong_so:=thuong;
+end;
+procedure xuat_phep_tinh;
+begin
+  writeln('--------------------------');
+  writeln('tong la: ',tong_so(a,b));
+  writeln('hieu la: ',hieu_so(a,b));
+  writeln('tich la: ',tich_so(a,b));
+  writeln('thuong la: ',(thuong_so(a,b)):0:1);
+end;
+
+BEGIN
+  clrscr;
+  nhap(a,b);
+  xuat_phep_tinh;
+readln
+END.

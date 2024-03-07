@@ -1,0 +1,45 @@
+Program shhln_nn;
+uses crt;
+var n:qword;
+function kiemtra(n:qword):boolean;
+var i:integer;
+    stn:int64;
+    ok:boolean;
+begin
+  stn:=0;
+  for i:=1 to n div 2 do
+    if n mod i=0 then
+      stn:=stn+i;
+  if stn=n then
+    ok:=true
+  else
+    ok:=false;
+  kiemtra:=ok;
+end;
+procedure shh_ln(n:qword);
+var max:integer;
+begin
+  repeat
+    dec(n);
+  until kiemtra(n);
+      max:=n;
+  writeln('so hoan hao lon nhat <n la: ',max);
+end;
+procedure shh_nn(n:qword);
+var i,min:integer;
+begin
+  i:=n;
+  repeat
+    inc(i);
+  until kiemtra(i);
+  min:=i;
+  writeln('so hoan hao nho nhat >n la: ',min);
+end;
+
+Begin
+clrscr;
+  write('nhap 1 so nguyen n: ');readln(n);
+  shh_ln(n);
+  shh_nn(n);
+readln
+End.

@@ -1,0 +1,51 @@
+Program mang_1c;
+uses crt;
+type mang=array[1..100] of integer;
+     sn=integer;
+var a:mang;
+    n:sn;
+procedure nhap(var a:mang; var n:sn);
+var i:sn;
+begin
+  write('Nhap so phan tu: ');readln(n);
+  for i:=1 to n do
+    begin
+      write('a[',i,']= ');readln(a[i]);
+    end;
+  writeln('------------------------------------');
+end;
+procedure in_sc(a:mang; n:sn);
+var demc,i:sn;
+begin
+  demc:=0;
+  writeln('cac so chan va so le da nhap la: ');
+  for i:=1 to n do
+    if a[i] mod 2=0 then
+      begin
+        inc(demc);
+        write(a[i],' ');
+      end;
+  writeln;
+  writeln('co ',demc,' so chan');
+end;
+procedure in_sl(a:mang; n:sn);
+var deml,i:sn;
+begin
+  deml:=0;
+  for i:=1 to n do
+    if a[i] mod 2<>0 then
+        begin
+          inc(deml);
+          write(a[i],' ');
+        end;
+  writeln;
+  writeln('co ',deml,' so le');
+end;
+
+Begin
+  clrscr;
+  nhap(a,n);
+  in_sc(a,n);
+  in_sl(a,n);
+  readln
+End.

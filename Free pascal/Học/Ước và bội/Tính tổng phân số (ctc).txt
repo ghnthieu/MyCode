@@ -1,0 +1,55 @@
+Program cong_ps;
+uses crt;
+var a,b,c,d,tu,mau:integer;
+procedure nhap(var a,b,c,d:integer);
+begin
+  write('a= ');readln(a);
+  repeat
+    write('b= ');readln(b);
+  until b<>0;
+  write('c= ');readln(c);
+  repeat
+    write('d= ');readln(d);
+  until d<>0;
+end;
+function ucln(a,b:integer):integer;
+var sodu:integer;
+begin
+  sodu:=a mod b;
+  while sodu<>0 do
+    begin
+      a:=b;
+      b:=sodu;
+      sodu:= a mod b;
+    end;
+  ucln:=b;
+end;
+function bcnn(var b,d:integer):integer;
+begin
+  bcnn:=b*d div ucln(a,b);
+end;
+procedure qd_rg(a,b:integer);
+var tu,mau,kq:integer;
+begin
+  write('kq: ',a,'/',b,' + ',c,'/',d,' = ');
+  mau:=bcnn(b,d);
+  a:=mau div b*a;
+  c:=mau div d*c;
+  tu:=a+c;
+  if tu mod mau=0 then
+    begin
+      kq:=tu div mau;
+      write(kq);
+    end
+  else
+    if ucln(tu,mau)=1 then
+      writeln(tu,'/',mau)
+    else
+      writeln(tu div ucln(tu,mau),'/',mau div ucln(tu,mau));
+end;
+Begin
+clrscr;
+  nhap(a,b,c,d);
+  qd_rg(a,b);
+readln
+End.
