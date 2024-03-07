@@ -1,2 +1,2 @@
-# MyCode is so pretty :>
+# My Code is so pretty :>
 # My luv is HChu ✨
