@@ -1,4 +1,3 @@
-
 int partion(int a[], int b[], int l, int r) {
     int pivot = a[r];
     int i = l - 1;
