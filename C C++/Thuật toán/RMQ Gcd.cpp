@@ -49,7 +49,7 @@ void buildgcd(void) {
 
 int getgcd(int l, int r) {
     int m = __lg(r - l + 1);
-    return min(gd[m][l], gd[m][r - mask(m) + 1]);
+    return gcd(gd[m][l], gd[m][r - mask(m) + 1]);
 }
 
 __Trung_Hieu___ {
