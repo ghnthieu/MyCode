@@ -4,4 +4,4 @@ for (int i=2; i<=sqrt(n); i++) {
         n /= i;
     }
 }
-if (n) cout << n;
+if (n > 1) cout << n;
