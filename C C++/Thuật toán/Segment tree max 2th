@@ -1,0 +1,27 @@
+ii(int, int) tree[4 * N];
+void build(int id, int l, int r) {
+    if (l == r)
+        tree[id] = {a[l], 0};
+    else {
+        int mid = l + r >> 1;
+        build(id << 1, l, mid);
+        build(id << 1 | 1, mid + 1, r);
+        if (tree[id << 1 | 1].fi <= tree[id << 1].fi)
+            tree[id] = {tree[id << 1].fi, max(tree[id << 1].se, tree[id << 1 | 1].fi)};
+        else
+            tree[id] = {tree[id << 1 | 1].fi, max(tree[id << 1 | 1].se, tree[id << 1].fi)};
+    }
+}
+
+ii(int, int) find_max(int id, int l, int r, int u, int v) {
+    if (u > r || l > v) 
+        return {0, 0};
+    if (u <= l && r <= v) 
+        return tree[id];
+    else {
+        int m = l + r >> 1;
+        ii(int, int) tmp1 = find_max(id << 1, l, m, u, v),
+                     tmp2 = find_max(id << 1 | 1, m + 1, r, u, v);
+        return ((tmp2.fi <= tmp1.fi) ? make_pair(tmp1.fi, max(tmp1.se, tmp2.fi)) : make_pair(tmp2.fi, max(tmp2.se, tmp1.fi)));
+    }
+}
