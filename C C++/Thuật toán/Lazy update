@@ -1,0 +1,24 @@
+void fix(int v, int l, int r) {
+    if (!lazy[v])
+        return;
+    tree[v] += lazy[v];
+    if (l != r) {
+        lazy[2 * v] += lazy[v];
+        lazy[2 * v + 1] += lazy[v];
+    }
+    lazy[v] = 0;
+}
+ 
+void update(int id, int l, int r, int u, int v, int val) {
+    fix(id, l, r);
+    if (l > v || r < u)
+        return;
+    if (l >= u && r <= v) {
+        lazy[id] += val;
+        fix(id, l, r);
+        return;
+    }
+    int mid = l + r >> 1;
+    update(2 * id, l, mid, u, v, val);
+    update(2 * id + 1, mid + 1, r, u, v, val);
+}
