@@ -42,8 +42,8 @@ ll Ford_Fulkerson(int s, int t) {
     ll res = 0;
     while (true) {
         //Init
-        memset(vit, false, sizeof(vit));
-        memset(par, (-1), sizeof(par));
+        memset(vit, false, (n + 1) * sizeof(bool));
+        memset(par, (-1), (n + 1) * sizeof(int));
         queue <int> q;
         q.push(s);
         vit[s] = true;
