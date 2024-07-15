@@ -20,7 +20,7 @@ bool check(int u, int v, int len) {
 }
 
 //MOD = 1e9 + 7;
-//N = 1e9 + 7;
+//N = 1e6 + 7;
 //Sl = 256;
 
 //Trả về độ dài tiền tố dài nhất bắt đầu từ u và v
