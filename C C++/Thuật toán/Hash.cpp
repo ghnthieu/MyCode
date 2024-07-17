@@ -40,7 +40,7 @@ ll pw[N], hash_a[N];
 vec(int) luu;
 
 ll get_hash(int l, int r) {
-    return (hash_a[r] - hash_a[l - 1] * pw[r - l + 1] + MOD * MOD) % MOD;
+    return 1ll * (hash_a[r] - hash_a[l - 1] + MOD) % MOD * pw[N - r] % MOD;
 }
 
 __Trung_Hieu___ {
