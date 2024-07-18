@@ -29,31 +29,45 @@ template <typename T1, typename T2> bool maximize(T1 &a, T2 b) { if (a < b) { a 
 typedef long long ll;
 typedef unsigned long long ull;
 const int MOD = (int) 1e9 + 7;
-const int N = (int) 1e5 + 7;
+const int N = (int) 1e4 + 7;
 
 /*-----------------------------------------------------------------------------------------------------------------*/
 
-int n, q, child[N * 50][26], cnt;
-bool check_end[N * 50];
+struct Trie {
+    int child[26], cnt;
+
+    Trie() {
+        memset(child, 0, sizeof(child));
+    }
+};
+
+int n, q;
+Trie a[N];
+int cnt = 0;
 
 void add(string s) {
     int u = 0;
     Rep(i, s.length()) {
         int v = s[i] - 'a';
-        if (!child[u][v]) child[u][v] = ++cnt;
-        u = child[u][v];
+        if (a[u].child[v] == 0) {
+            a[u].child[v] = ++cnt;
+            u = cnt;
+        }
+        else
+            u = a[u].child[v];
+        a[u].cnt++;
     }
-    check_end[u] = true;
 }
 
-bool find_string(string s) {
-    int u = 0;
+int count_pre_string(string s) {
+    int u = 0, res = 0;
     Rep(i, s.length()) {
         int v = s[i] - 'a';
-        if (!child[u][v]) return false;
-        u = child[u][v];
+        u = a[u].child[v];
+        if (u == 0) return 0;
+        res = a[u].cnt;
     }
-    return check_end[u];
+    return res;
 }
 
 __Trung_Hieu___ {
@@ -76,7 +90,7 @@ __Trung_Hieu___ {
     cin >> q;
     Rep(query, q) {
         string s; cin >> s;
-        cout << ((find_string(s)) ? 1 : 0) << '\n';
+        cout << count_pre_string(s) << '\n';
     }
 
     cerr << "Time elapsed: " << TIME << " s." << '\n';
