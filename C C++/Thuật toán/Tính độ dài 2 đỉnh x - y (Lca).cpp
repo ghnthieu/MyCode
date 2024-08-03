@@ -1,5 +1,12 @@
-
 int par[N][M + 1], high[N];
+
+void dfs(int u) {
+    vit[u] = true;
+    for (ii(int, int) v : inp[u]) if (!vit[v.fi]) {
+        duong[v.fi] = duong[u] + v.se;
+        dfs(v.fi);
+    }
+}
 
 void dfs_lca(int u) {
     for (ii(int, int) v : inp[u]) {
@@ -26,3 +33,10 @@ int lca(int u, int v) {
 ll get_sum(int u, int v) {
     return duong[u] + duong[v] - (duong[lca(u, v)] * 2);
 }
+
+dfs(1);
+dfs_lca(1);
+For(j, 1, M, 1) For(i, 1, n, 1)
+    par[i][j] = par[par[i][j - 1]][j - 1];
+high[0] = -1;
+
