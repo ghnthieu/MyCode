@@ -14,8 +14,7 @@ void build(int id, int l, int r) {
 }
 
 ii(int, int) find_max(int id, int l, int r, int u, int v) {
-    if (u > r || l > v) 
-        return {0, 0};
+    if (u > r || l > v) return {0, 0};
     if (u <= l && r <= v) 
         return tree[id];
     else {
