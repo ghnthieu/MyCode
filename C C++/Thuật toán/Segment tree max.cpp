@@ -1,37 +1,34 @@
-void build(int v, int l, int r) {
+int tree[4 * N];
+void build(int id, int l, int r) {
     if (l == r)
-        tree[v] = a[l];
+        tree[id] = a[l];
     else {
-        int mid = (l + r) / 2;
-        build(2 * v, l, mid);
-        build(2 * v + 1, mid + 1, r);
-        tree[v] = max(tree[2 * v], tree[2 * v + 1]);
+        int mid = l + r >> 1;
+        build(id << 1, l, mid);
+        build(id << 1 | 1, mid + 1, r);
+        tree[id] = max(tree[id << 1], tree[id << 1 | 1]);
     }
 }
-(Xây dựng segment tree cho truy vấn max)
 
-int findmax(int v, int treel, int treer, int l, int r) {
-    if (l > r)
-        return -1;
-    if (treel == l && treer == r)
-        return tree[v];
+int find_max(int id, int l, int r, int u, int v) {
+    if (u > r || l > v) return INT_MIN;
+    if (u <= l && r <= v) 
+        return tree[id];
     else {
-        int treem = (treel + treer) / 2;
-        return max(findmax(2 * v, treel, treem, l, min(treem, r)), findmax(2 * v + 1, treem + 1, treer, max(treem + 1, l), r));
+        int m = l + r >> 1;
+        return max(find_max(id << 1, l, m, u, v), find_max(id << 1 | 1, m + 1, r, u, v));
     }
 }
-(Truy vấn max từ l -> r)
 
-void update(int v, int l, int r, int pos, int value) {
+void update(int id, int l, int r, int pos, int value) {
     if (l == r)
-        tree[v] = value;
+        tree[id] = value;
     else {
-        int mid = (l + r) / 2;
-        if (pos <= mid)
-            update(2 * v, l, mid, pos, value);
+        int m = l + r >> 1;
+        if (pos <= m)
+            update(id << 1, l, m, pos, value);
         else
-            update(2 * v + 1, mid + 1, r, pos, value);
-        tree[v] = max(tree[2 * v], tree[2 * v + 1]);
+            update(id << 1 | 1, m + 1, r, pos, value);
+        tree[id] = max(tree[id << 1], tree[id << 1 | 1]);
     }
 }
-(Thay đổi giá trị pos trong mảng thành giá trị value cho truy vấn max)
