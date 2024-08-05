@@ -35,6 +35,7 @@ void update(int id, int l, int r, int u, int v, int val) {
 }
 
 int find_sum(int id, int l, int r, int u, int v) {
+    fix(id, l, r);
     if (u > r || l > v) return 0;
     if (u <= l && r <= v) 
         return tree[id];
@@ -43,5 +44,3 @@ int find_sum(int id, int l, int r, int u, int v) {
         return find_sum(id << 1, l, m, u, v) + find_sum(id << 1 | 1, m + 1, r, u, v);
     }
 }
-
-
