@@ -29,18 +29,17 @@ template <typename T1, typename T2> bool maximize(T1 &a, T2 b) { if (a < b) { a 
 typedef long long ll;
 typedef unsigned long long ull;
 const ll MOD = (ll) 1e9 + 7;
-const int N = (int) 1e6 + 111;
+const int N = (int) 1e6 + 7;
 const int base = (int) 31;
-
 
 /*-----------------------------------------------------------------------------------------------------------------*/
 
-string a, b;
-ll pw[N], hash_a[N];
-vec(int) luu;
+int n, q;
+string s;
+ll pw[N], hashh[N];
 
 ll get_hash(int l, int r) {
-    return 1ll * (hash_a[r] - hash_a[l - 1] + MOD) % MOD * pw[N - r] % MOD;
+    return (hashh[r] - hashh[l - 1] * pw[r - l + 1] + MOD * MOD)  % MOD;
 }
 
 __Trung_Hieu___ {
@@ -54,27 +53,21 @@ __Trung_Hieu___ {
     //freopen("TEST.inp", "r", stdin);
     //freopen("TEST.out", "w", stdout);
 
-    cin >> b >> a;
-
-    //Tìm xâu a trong xâu b
-    int len_a = a.length(), len_b = b.length();
-    a = "v" + a;
-    b = "v" + b;
+    cin >> n >> q >> s;
+    int len = s.length();
+    s = "h" + s;
     pw[0] = 1;
-    For(i, 1, len_a, 1)
-        pw[i] = (pw[i - 1] * base) % MOD;
-
-    For(i, 1, len_a, 1)
-        hash_a[i] = (hash_a[i - 1] * base + a[i] - 'a' + 1) % MOD;
-
-    ll hash_b = 0;
-    For(i, 1, len_b, 1)
-        hash_b = (hash_b * base + b[i] - 'a' + 1) % MOD;
-    For(i, 1, len_a - len_b + 1, 1) if (hash_b == get_hash(i, i + len_b - 1))
-        luu.pub(i);
-
-    cout << luu.size() << '\n';
-    for (int x : luu) cout << x << " ";
+    For(i, 1, len, 1) pw[i] = (pw[i - 1] * base) % MOD;
+    For(i, 1, len, 1) hashh[i] = (hashh[i - 1] * base + s[i] - 'a' + 1) % MOD;
+    //For(i, 1, n, 1) cout << hashh[i] << " ";
+    //cout << '\n';
+    Rep(query, q) {
+        int l, r, u, v; cin >> l >> r >> u >> v;
+        if (get_hash(l, r) == get_hash(u, v))
+            cout << "YES" << '\n';
+        else
+            cout << "NO" << '\n';
+    }
 
     cerr << "Time elapsed: " << TIME << " s." << '\n';
     return 0;
