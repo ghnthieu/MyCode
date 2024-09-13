@@ -36,18 +36,22 @@ const int base = (int) 31;
 
 int n, q;
 string s;
-ll pw[N], hashh[N];
+ll pw[N], hashh[N], hash_rev[N];
 
 ll get_hash(int l, int r) {
     return (hashh[r] - hashh[l - 1] * pw[r - l + 1] + MOD * MOD)  % MOD;
+}
+
+ll get_hash_rev(int l, int r) {
+    return (hash_rev[l] - hash_rev[r + 1] * pw[r - l + 1] + MOD * MOD)  % MOD;
 }
 
 __Trung_Hieu___ {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
-    //freopen(".inp", "r", stdin);
-    //freopen(".out", "w", stdout);
+    //freopen("palindrome.inp", "r", stdin);
+    //freopen("palindrome.out", "w", stdout);
     freopen("Input.txt", "r", stdin);
     freopen("Output.txt", "w", stdout);
     //freopen("TEST.inp", "r", stdin);
@@ -59,14 +63,27 @@ __Trung_Hieu___ {
     pw[0] = 1;
     For(i, 1, len, 1) pw[i] = (pw[i - 1] * base) % MOD;
     For(i, 1, len, 1) hashh[i] = (hashh[i - 1] * base + s[i] - 'a' + 1) % MOD;
-    //For(i, 1, n, 1) cout << hashh[i] << " ";
-    //cout << '\n';
+    Ford(i, len, 1, 1) hash_rev[i] = (hash_rev[i + 1] * base + s[i] - 'a' + 1) % MOD;
     Rep(query, q) {
-        int l, r, u, v; cin >> l >> r >> u >> v;
-        if (get_hash(l, r) == get_hash(u, v))
+        int l, r; cin >> l >> r;
+        if (l == r)
             cout << "YES" << '\n';
-        else
-            cout << "NO" << '\n';
+        else if ((r - l + 1) % 2 == 0) {
+            int len_2 = (r - l + 1) / 2;
+            if (get_hash(l, l + len_2 - 1) == get_hash_rev(l + len_2, r))
+                cout << "YES" << '\n';
+            else
+                cout << "NO" << '\n';
+            //cout << l << " " << l + len_2 - 1 << " " << l + len_2 << " " << r << '\n';
+        }
+        else {
+            int len_2 = (r - l) / 2;
+            if (get_hash(l, l + len_2 - 1) == get_hash_rev(l + len_2 + 1, r))
+                cout << "YES" << '\n';
+            else
+                cout << "NO" << '\n';
+            //cout << l << " " << l + len_2 - 1 << " " << l + len_2 + 1 << " " << r << '\n';
+        }
     }
 
     cerr << "Time elapsed: " << TIME << " s." << '\n';
