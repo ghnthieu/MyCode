@@ -30,6 +30,10 @@ string s;
 void manacher(string st) {
     int len = st.length();
     if (len == 0) return;
+    if (len == 1) {
+        cout << st;
+        return;
+    }
     len = 2 * len + 1;
 
     int left[len]; left[0] = 0; left[1] = 1;
