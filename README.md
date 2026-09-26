@@ -41,26 +41,6 @@ The repository covers a wide range of competitive programming topics, including:
 * Range Queries
 * Competitive Programming Techniques
 
-## 📊 Problem Solving
-
-### CSES Problem Set
-
-I have solved **207 problems** from the CSES Problem Set.
-
-The solutions cover topics such as:
-
-* Introductory Problems
-* Sorting and Searching
-* Dynamic Programming
-* Graph Algorithms
-* Range Queries
-* Tree Algorithms
-* Mathematics
-* String Algorithms
-* Advanced Techniques
-
-My CSES solutions are included in this repository as part of my long-term competitive programming archive.
-
 ## 🏆 Contests & Competitions
 
 The repository contains code from various programming contests, Olympiads, training camps, and qualification rounds.
@@ -100,13 +80,21 @@ The repository contains code from various programming contests, Olympiads, train
 
 ```text
 MyCode/
+│
 ├── README.md
+│
 └── C C++/
+    │
     ├── Algorithms/
+    │
     └── Contest/
+        ├── Programming Contests/
+        ├── Olympiads/
+        ├── Training/
+        └── Tests/
 ```
 
-The contest archive preserves the original organization of my training and competition history.
+The actual contest archive preserves the original organization of my training and competition history.
 
 ## 📈 Programming Journey
 
@@ -134,8 +122,8 @@ I am gradually building a new set of cybersecurity projects and notes alongside 
 
 Some of the platforms represented in this repository include:
 
-* CSES — **207 solved**
 * Codeforces
+* CSES
 * LQDOJ
 * VNOI
 * QHHOJ
