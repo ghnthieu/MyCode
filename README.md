@@ -43,7 +43,9 @@ MyCode/
 ├── 📄 README.md
 └── 📂 C C++/
     ├── 📂 Algorithms/
-    └── 📂 Contest/
+    ├── 📂 Contest/
+    └── 📂 Trại Hè/
+
 ```
 
 The repository preserves solutions from my training and competitive programming activities.
