@@ -1,4 +1,4 @@
-# MyCode
+# MyCode ✨
 
 A personal repository for storing my competitive programming solutions, algorithms, data structures, and contest-related code.
 
