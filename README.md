@@ -1,49 +1,53 @@
 # MyCode ✨
 
-A personal archive of my **competitive programming journey**, containing solutions, algorithms, data structures, templates, and submissions from programming contests and competitions.
+A personal archive of my **competitive programming journey**, containing solutions, algorithms, data structures, templates, and code from programming contests and competitions.
 
-## About
+This repository started as a collection of my programming practice and gradually grew into a long-term archive of my problem-solving experience.
 
-This repository documents my learning and problem-solving experience through competitive programming.
+## 👨‍💻 About
 
-It contains:
+I have been working with **C++ and competitive programming** throughout high school, participating in programming contests, Olympiads, training camps, and online competitions.
+
+This repository contains:
 
 * Competitive programming solutions
 * Algorithms and data structures
-* Reusable problem-solving templates
+* Problem-solving templates
 * Contest submissions
-* Practice problems from online judges
-* Solutions written during programming competitions
-* Code from both **C++ and Free Pascal**
+* Training and practice problems
+* Solutions from programming competitions
+* C++ and legacy Free Pascal code
 
-## Languages
+## 🛠️ Languages
 
 * **C++**
 * **Free Pascal**
 
-## Topics
+## 🧠 Topics
 
 The repository covers a wide range of competitive programming topics, including:
 
 * Graph Algorithms
 * Dynamic Programming
 * Data Structures
+* Tree Algorithms
 * String Algorithms
 * Number Theory
 * Searching & Sorting
-* Tree Algorithms
 * Greedy Algorithms
+* Divide and Conquer
 * Recursion & Backtracking
 * Computational Geometry
+* Range Queries
 * Competitive Programming Techniques
 
-## Contests & Competitions
+## 🏆 Contests & Competitions
 
-This repository contains code and solutions from many contests and programming competitions, including:
+The repository contains code from various programming contests, Olympiads, training camps, and qualification rounds.
 
 ### Programming Contests
 
-* AMSoI 2024
+* AMSOI 2024
 * Beginner Free Contest 55
 * CĐHSP 2024
 * ĐHBB 2024
@@ -51,27 +55,72 @@ This repository contains code and solutions from many contests and programming c
 * Free Contest Cup 2023
 * Free Contest 150
 * HQTDN
-* KHTN
-* LQDOJ Cup
-* QHHOJ 2024
-* Testing Round 57
+* LQĐCUP
+* QHHOJ
+* Testing Round
+* Hue ICT Pro
 
-### Informatics Olympiads & Competitions
+### Olympiads & Competitions
 
 * OLP 30/4 2024
 * OLP 30/4 2025
-* OLP MTTN 2024
-* Tin học trẻ — Regional Competition 2024
-* Trại hè Bình Dương
-* Trại hè Gia Lai
-* Trại hè Đà Nẵng
+* OLP MT&TN 2024
+* KHTN Informatics Olympiad
+* Regional Young Informatics Competition 2024
 
-### Training & Qualification Rounds
+### Training & Camps
 
-* Pre Voi
-* Pre Test — Hue ICT Pro
+* Pre-VOI
+* Pre-Test / Training Rounds
+* Programming camps in Bình Dương
+* Programming camps in Gia Lai
+* Programming camps in Đà Nẵng
 
-## Online Judges & Platforms
+## 📁 Repository Structure
+
+```text
+MyCode/
+│
+├── README.md
+│
+└── C C++/
+    │
+    ├── Algorithms/
+    │
+    └── Contest/
+        ├── Programming Contests/
+        ├── Olympiads/
+        ├── Training/
+        └── Tests/
+```
+
+The actual contest archive preserves the original organization of my training and competition history.
+
+## 📈 Programming Journey
+
+My programming journey has developed through several stages:
+
+**Practice → Algorithms → Contests → Olympiads → Advanced Problem Solving**
+
+The repository reflects this progression through solutions written over multiple years of study and competition.
+
+## 🎯 Current Direction
+
+I am currently studying **Information Security at the University of Information Technology (UIT)**.
+
+My competitive programming background in **C++, algorithms, data structures, and problem solving** provides the foundation for my current exploration of:
+
+* Cybersecurity
+* Capture The Flag (CTF)
+* Linux
+* Reverse Engineering
+* x86 Assembly
+
+I am gradually building a new set of cybersecurity projects and notes alongside this competitive programming archive.
+
+## 📚 Online Judges & Platforms
+
+Some of the platforms represented in this repository include:
 
 * Codeforces
 * CSES
@@ -80,20 +129,6 @@ This repository contains code and solutions from many contests and programming c
 * QHHOJ
 * Hue ICT Pro
 * Other programming contest platforms
-
-## Programming History
-
-This repository is also a record of my development as a competitive programmer, from early practice with **Free Pascal** to more advanced problem solving with **C++**.
-
-Over time, the repository has grown through:
-
-**Practice → Contests → Algorithms → Problem Solving → Competitive Programming**
-
-## Goal
-
-The main purpose of this repository is to preserve my solutions and track my progress in competitive programming.
-
-Beyond competitive programming, I am currently studying **Information Security** and exploring how my background in algorithms, problem solving, and C++ can be applied to **CTF and Reverse Engineering**.
 
 ---
 
